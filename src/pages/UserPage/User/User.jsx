@@ -1,23 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { asyncFunctionOne } from "../../../reduxjs/actions";
-import { useDispatch } from "react-redux";
+import React from "react";
+import {useDispatch} from "react-redux";
+import {Link} from "react-router-dom";
+import {f} from "../../../reduxjs/actions";
 
 const User = ({ info }) => {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch()
+
   return (
     <div>
       <h1>{info.name}</h1>
       <p>{info.email}</p>
-      <Link to={`/user/${info.id}`}>
-        <button
-          onClick={() => {
-            dispatch(asyncFunctionOne(info.id));
-          }}
-        >
-          more info
-        </button>
-      </Link>
+        <Link to={`/user/${info.id}`}>
+            <button onClick={() => dispatch(f(info.id))}>more info</button>
+        </Link>
     </div>
   );
 };

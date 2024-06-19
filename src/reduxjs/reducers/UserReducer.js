@@ -12,7 +12,7 @@ export default function fetchUsers(state = initialState, action) {
       users: action.payload,
     };
   }
-  if (action.type === types.ASYNC_ONE) {
+  if (action.type === types.FETCH) {
     return {
       ...state,
       user: action.payload,
